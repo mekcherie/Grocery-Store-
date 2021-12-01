@@ -1,21 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>New Item</h1>
+<h1>Log In</h1>
 
-<form method="POST">
+<form action="/login" method="POST">
+    {{ form.csrf_token }}
     <fieldset>
-        <legend>Please enter your information:</legend>
+        <legend>Enter your credentials</legend>
 
+        {{ form.username.label }}
+        {{ form.username }}
+        <ul>
+        {% for error in form.username.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+        </ul>
 
+        {{ form.password.label }}
+        {{ form.password }}
+        <ul>
+        {% for error in form.password.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+        </ul>
 
-        <!-- TODO: Remove the next paragraph and use the `form` object passed in 
-            from the route to render a form. -->
-        <p><em>Form fields go here!</em></p>
-
-        <input type="submit" value="Submit">
+        {{ form.submit }}
     </fieldset>
 </form>
-
 
 {% endblock %}
