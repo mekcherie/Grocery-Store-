@@ -5,6 +5,8 @@
 
 <strong>Address:</strong> {{ store.address }}
 
+<strong>Store Created By:</strong> {{ store.created_by }}
+
 <h2>Items</h2>
 
 <div class="items">
@@ -13,7 +15,6 @@
         <a href="/item/{{ item.id }}"><img src="{{ item.photo_url }}" alt="{{ item.name }}" width="200px">
         <p><strong>{{ item.name }}</strong></p></a>
         <p><strong>Price: ${{ item.price }}</strong></p>
-        <p>Created By: ${{ item.created_by.username }}</p>
     </div>
     {% endfor %}
 </div>
@@ -21,12 +22,13 @@
 
 <h2>Edit Store</h2>
 
-<form method="POST" action="{{ url_for('main.store_detail', store_id=store.id) }}">
+<form method='POST' action="{{ url_for('main.store_detail', store_id = store.id) }}">
     {{ form.csrf_token }}
     <fieldset>
         <legend>Please enter your information:</legend>
+
         {{ form.title.label }}
-        {{ form.title }}
+        {{ form.title}}
 
         {{ form.address.label }}
         {{ form.address }}

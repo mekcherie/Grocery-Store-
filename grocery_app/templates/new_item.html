@@ -3,11 +3,11 @@
 
 <h1>New Item</h1>
 
-<form method="POST" action="{{ url_for('main.new_item') }}">
+<form method="POST", action="{{ url_for('main.new_item') }}">
     {{ form.csrf_token }}
     <fieldset>
         <legend>Please enter your information:</legend>
-
+        
         {{ form.name.label }}
         {{ form.name }}
 

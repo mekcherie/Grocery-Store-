@@ -3,13 +3,13 @@
 
 <h1>New Store</h1>
 
-<form method="POST" action="{{ url_for('main.new_store') }}">
+<form method='POST' action="{{ url_for('main.new_store') }}">
     {{ form.csrf_token }}
     <fieldset>
         <legend>Please enter your information:</legend>
 
         {{ form.title.label }}
-        {{ form.title }}
+        {{ form.title}}
 
         {{ form.address.label }}
         {{ form.address }}
